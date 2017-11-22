@@ -1,5 +1,5 @@
 
-package DMOJPractice.DMOJ_Solutions;
+package DMOJ_Solutions;
 
         import java.util.Scanner;
 

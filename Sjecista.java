@@ -1,4 +1,4 @@
-package DMOJPractice.DMOJ_Solutions;
+package DMOJ_Solutions;
 
 import java.math.BigInteger;
 import java.util.Scanner;
