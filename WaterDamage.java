@@ -1,4 +1,4 @@
-package DMOJPractice.DMOJ_Solutions;
+package DMOJ_Solutions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +38,6 @@ public class WaterDamage {
                 }
             }
             System.out.println(res);
-            if(x!=4)stdin.readLine();
         }
     }
 }
