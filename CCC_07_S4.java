@@ -24,7 +24,9 @@ public class CCC_07_S4 {
             }
             s = stdin.readLine().split(" ");
         }
-        boolean[] visited = new boolean[n+1];
+        if(!m.keySet().contains(1)){
+            m.put(1, new ArrayList<>());
+        }
         System.out.println(dfs(n, 0, 1, m));
 
     }
