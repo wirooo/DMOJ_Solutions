@@ -17,9 +17,9 @@ public class CCC_07_S4 {
             adjlist.add(new Pair<>(Integer.parseInt(s[0]),Integer.parseInt(s[1])));
         }
         paths = new int[n+1];
-        System.out.print(paths[n]=dfs(n));
+        //System.out.print(paths[n]=dfs(n));
     }
-    public static int dfs(int n){
+    /*public static int dfs(int n){
         Stack<Integer> s = new Stack();
         s.push(n);
         while(!s.isEmpty()){
@@ -30,7 +30,7 @@ public class CCC_07_S4 {
                 }
             }
         }
-    }
+    }*/
 }
 class Pair<X, Y>{
     public X x;
