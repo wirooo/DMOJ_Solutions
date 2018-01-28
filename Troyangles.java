@@ -1,4 +1,4 @@
-package october_29_2016;
+package DMOJ_Solutions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
