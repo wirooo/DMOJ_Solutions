@@ -34,6 +34,7 @@ public class CCC_02_S4 {
                 max = Math.max(max, t[i-j]);
             }
         }
+
         for(int i:dp)System.out.print(i+ " ");
     }
 }
