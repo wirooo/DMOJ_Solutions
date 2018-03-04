@@ -21,10 +21,10 @@ public class CCC_08_S3 {
                     map[i][j] = Integer.parseInt(line[j-1]);
                 }
             }
-            System.out.println(dfs(map, r, c));
+            //System.out.println(dfs(map, r, c));
         }
     }
-    public static int dfs(int[][] map, int r, int c){
+    /*public static int dfs(int[][] map, int r, int c){
         int[][] dist = new int[r+1][c+1];
         for(int i=0; i<r; i++){
             Arrays.fill(dist[i], Integer.MAX_VALUE);
@@ -36,7 +36,7 @@ public class CCC_08_S3 {
             MazePair curr = q.poll();
 
         }
-    }
+    }*/
 }
 
 class MazePair<X, Y>{
