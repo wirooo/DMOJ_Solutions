@@ -8,44 +8,39 @@ import java.util.*;
 public class AnimeConvention {
     public static void main(String[] args) throws IOException{
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        String[] firstTokens = stdin.readLine().split(" ");
-        int n = Integer.parseInt(firstTokens[0]); //num of cities
-        int q = Integer.parseInt(firstTokens[1]); //num of queries
-        List<Integer>[] map = new List[n+1]; //adjacency list
-        for(int i=1; i<map.length; i++)map[i] = new ArrayList<Integer>();
-        for(int i=0; i<q; i++){
-            String[] query = stdin.readLine().split(" ");
-            String action = query[0];
-            int firstCity = Integer.parseInt(query[1]);
-            int secondCity = Integer.parseInt(query[2]);
-            if(action.equals("A")){ // adding to map
-                map[firstCity].add(secondCity);
-                map[secondCity].add(firstCity);
-            }else if (action.equals("Q")){ // check if two nodes are connected
-                boolean result = BFS(map, firstCity, secondCity);
-                if(result) System.out.println("Y");
-                else System.out.println("N");
-            }
+        String[] one = stdin.readLine().split(" ");
+        int n = Integer.parseInt(one[0]);
+        int q = Integer.parseInt(one[1]);
+        int[] parents = new int[n+1];
+        for(int i=1; i<=n; i++){
+            parents[i] = i;
         }
-
-    }
-    public static boolean BFS(List<Integer>[] map, int start, int end){
-        Queue<Integer> toVisit = new LinkedList<>();
-        toVisit.add(start);
-        Set<Integer> visited = new HashSet<Integer>();
-        visited.add(start);
-        boolean notReachedEnd = true;
-        while(!toVisit.isEmpty() && notReachedEnd){
-            int currentNode = toVisit.poll();
-            for(int x:map[currentNode]){
-                if(x == end) {
-                    notReachedEnd = false;
-                } else if(!visited.contains(x)){
-                    toVisit.add(x);
-                    visited.add(x);
+        for(int i=0; i<q; i++){
+            String[] in = stdin.readLine().split(" ");
+            int a = Integer.parseInt(in[1]);
+            int b = Integer.parseInt(in[2]);
+            int ap = find(a, parents);
+            int bp = find(b, parents);
+            if(in[0].equals("A")){ //build road
+                if(ap != bp){
+                    union(ap, bp, parents);
+                }
+            }else{ //check road
+                if(ap == bp){
+                    System.out.println("Y");
+                }else{
+                    System.out.println("N");
                 }
             }
         }
-        return !notReachedEnd;
+    }
+    public static int find(int a, int[] parents){
+        if(parents[a] != a){ //not root
+            parents[a] = find(parents[a], parents);
+        }
+        return parents[a];
+    }
+    public static void union(int a, int b, int[] parents){
+        parents[find(b, parents)] = find(a, parents);
     }
 }
